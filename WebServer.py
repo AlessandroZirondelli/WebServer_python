@@ -3,7 +3,7 @@
 import sys, signal
 import http.server
 import socketserver
-import json
+
 
 # New import
 import cgi
@@ -24,7 +24,14 @@ class ServerHandler(http.server.SimpleHTTPRequestHandler):
           print("Stampo percorso file")
           print(self.path)
           out.write(str(info))
-        http.server.SimpleHTTPRequestHandler.do_GET(self)
+         
+        if(self.path == "/" or self.path == "/index.html"):
+              print("ok")
+              self.send_response(302)
+              self.send_header("Location","login.html")
+              self.end_headers()
+        else:
+            http.server.SimpleHTTPRequestHandler.do_GET(self)
          
     def do_POST(self):
         try:
@@ -41,17 +48,24 @@ class ServerHandler(http.server.SimpleHTTPRequestHandler):
             #with open('credenziali.json') as json_file:
              #   data = json.load(json_file)
              #  print("Stampo json ")
-           
+             
+            print(username)
+            print(password)
+            
+            self.send_response(302)
+            self.send_header("Location","index.html?auth=ok")
+            self.end_headers()
+            
             
             # Stampo all'utente i dati che ha inviato
-            output="Commento inviato\n\nMESSAGGIO:\nNOME e COGNOME: " + username + "\nE-MAIL: " + password + "\nCOMMENTO: " +"\n"
-            self.send_response(200)
+            #output="Commento inviato\n\nMESSAGGIO:\nNOME e COGNOME: " + username + "\nE-MAIL: " + password + "\nCOMMENTO: " +"\n"
+            #self.send_response(200)
         except: 
             self.send_error(404, 'Bad request submitted.')
             return;
         
-        self.end_headers()
-        self.wfile.write(bytes(output, 'utf-8'))
+        #self.end_headers()
+        #self.wfile.write(bytes(output, 'utf-8'))
         
         # Scrivo su file le richieste POST
         with open("POST_requests.txt", "a") as out:
