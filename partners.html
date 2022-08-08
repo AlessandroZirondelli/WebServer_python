@@ -13,7 +13,28 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <link href="./css/base-style.css" rel="stylesheet" type="text/css" />
+  <style>
+    h1   {text-align:center; margin: 1%;}
+    h2 {text-align: center; margin: 1%;  font-style: italic;}
+    .row {
+      display: flex;
+     
+    }
+    #rowfly{
+       width: 50%;
+       text-align: center;
+       margin-left: 25%;
+    }
 
+    .column {
+     /* flex: 33.33%;*/
+      flex:25%;
+     
+      padding: 5px;
+   
+
+    }
+    </style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous">
@@ -61,7 +82,6 @@
                     </li>
                   </ul>
                 </li>
-
               </ul>
             </div>
           </div>
@@ -69,22 +89,24 @@
       </div>
     </header>
 
+
    <main>
-      <h2 class="text-center mt-5">Servizi erogati: </h2>
-      <ul class="text-center list-unstyled mt-5">
-        <li>
-          <a class="text-black text-decoration-none" href="./destinazioni.html">Destinazioni</a>
-        </li>
-        <li>
-          <a class="text-black text-decoration-none" href="./proposte.html">Proposte</a>
-        </li>
-        <li>
-          <a class="text-black text-decoration-none"  href="./partners.html">Partners</a>
-        </li>
-        <li>
-          <a class="text-black text-decoration-none"  href="./contatti.html">Contatti</a>
-        </li> 
-      </ul>
+    <h1>Siamo i migliori perchè stiamo con il meglio</h1>
+    <h2>Compagnie aeree</h2>
+    <div class="row" id = "rowfly">
+      <div class="column">
+        <img src="./img/rynair.png" alt="rynair" style="width:100%">
+      </div>
+      <div class="column">
+        <img src="./img/lufthansa.png" alt="lufthansa" style="width:100%">
+      </div>
+      <div class="column">
+        <img src="./img/emirate.png" alt="emirate" style="width:100%">
+      </div>
+      <div class="column">
+        <img src="./img/alitalia.png" alt="alitalia" style="width:100%">
+      </div>
+    </div>
    </main>
 
    <footer>
