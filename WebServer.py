@@ -15,7 +15,7 @@ if sys.argv[1:]:
 else:
   port = 8080
 
-# Classe che mantiene le funzioni di SimpleHTTPRequestHandler
+
 class ServerHandler(http.server.SimpleHTTPRequestHandler):        
     def do_GET(self):
         # Scrivo sul file AllRequestsGET le richieste dei client     
@@ -53,12 +53,12 @@ class ServerHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(bytes(output, 'utf-8'))
         
-        # Salvo in locale i vari messaggi in AllPOST
+        # Scrivo su file le richieste POST
         with open("POST_requests.txt", "a") as out:
           info = "\n\nPOST request,\nNOME e COGNOME: " + username + "\nE-MAIL: " + password + "\nCOMMENTO: "+ "\n"
           out.write(info)
         
-# ThreadingTCPServer per gestire più richieste
+# ThreadingTCPServer per gestione multirichiesta
 server = socketserver.ThreadingTCPServer(('',port), ServerHandler)
 
  
@@ -76,11 +76,10 @@ signal.signal(signal.SIGINT, signal_handler)
 
 def main():
     
-    # Assicura che da tastiera usando la combinazione di tasti Ctrl-C termini in modo pulito tutti i thread generati
+    # Termina tutti i thread quando premo da tastier la combinazione di tasti
     server.daemon_threads = True 
     
-    # Il Server acconsente al riutilizzo del socket
-    # Anche se ancora non è stato rilasciato quello precedente, andandolo a sovrascrivere
+    # Nel caso non sia stata ancora chiusa la socket precedente, la sovrascrivo 
     server.allow_reuse_address = True  
     
     # Interrompe l'esecuzione se da tastiera arriva la sequenza (CTRL + C) 
@@ -90,7 +89,6 @@ def main():
     f = open('GET_requests.txt','w', encoding="utf-8")
     f.close()
     
-    # Entra nel loop infinito
     try:
       while True:
         server.serve_forever()
