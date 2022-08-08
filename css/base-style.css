@@ -1,0 +1,62 @@
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-light .navbar-toggler {
+    border: 1px solid white;
+}
+
+a.nav-link:hover,
+a.text-decoration-none:hover {
+    color: #EF626C !important;
+}
+
+footer a,
+.list-unstyled,
+.copyright.text-center {
+    color: #F6E8EA;
+}
+
+.nav-link.text-start {
+    color: #F6E8EA !important;
+}
+
+#footer-category,
+#footer-category-products,
+#footer-category-info {
+    color: #F6E8EA;
+}
+
+footer,
+nav {
+    background-color: #22181C !important;
+}
+
+li.icons-link li {
+    display: inline-block !important;
+}
+
+#DrinkVibes {
+    color: #EF626C !important;
+}
+
+*:not(i) {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+
+main{
+    display: flex;
+    min-height: 60vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+@media screen and (max-width: 992px) {
+    ul.navbar-nav>li.col-lg-2>a.nav-link.text-start {
+        text-align: center !important;
+    }
+    ul.navbar-nav>li.col-lg-2>a.nav-link {
+        text-align: center !important;
+    }
+}
