@@ -59,7 +59,7 @@ class ServerHandler(http.server.SimpleHTTPRequestHandler):
         
         # Scrivo su file le richieste POST
         with open("POST_requests.txt", "a") as out:
-          info = "\n\nPOST request,\nNOME e COGNOME: " + username + "\nE-MAIL: " + password + "\nCOMMENTO: "+ "\n"
+          info = "\n\nPOST request,\n username inserito: " + username + "  password inserita: " + password 
           out.write(info)
         
 # ThreadingTCPServer per gestione multirichiesta
